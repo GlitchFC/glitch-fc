@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitch FC - FC Mobile YouTube Channel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="images/glitch-fc-logo.png" alt="Glitch FC Logo" class="nav-logo">
+                <h1>Glitch FC</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#pack-opening" class="nav-link">Pack Opening</a></li>
+                <li><a href="#tips" class="nav-link">Tips</a></li>
+                <li><a href="#redeem-codes" class="nav-link">Redeem Codes</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#feedback" class="nav-link">Feedback</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Glitch FC</h2>
+                <p>Home of F2P.</p>
+                <a href="https://www.youtube.com/@GlitchFCGamer" target="_blank" class="cta-button">Visit YouTube Channel</a>
+            </div>
+        </section>
+
+        <!-- Pack Opening Section -->
+        <section id="pack-opening" class="section">
+            <div class="container">
+                <h2>Pack Opening Videos</h2>
+                <p>Check out the latest pack opening videos from Glitch FC!</p>
+                <div class="video-grid" id="pack-videos">
+                    <!-- Latest Pack Opening Video -->
+                    <div class="video-item">
+                        <div class="video-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/IKVV46O4Wzk" 
+                                    title="FC Mobile Pack Opening" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen></iframe>
+                        </div>
+                        <h3>Latest Pack Opening</h3>
+                        <p>Watch the latest pack opening and see what amazing players we get!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section id="tips" class="section">
+            <div class="container">
+                <h2>Tips & Guides</h2>
+                <p>Learn how to get gems, coins, tokens, shards, and master events!</p>
+                <div class="tips-categories">
+                    <div class="tip-category">
+                        <h3>Gems</h3>
+                        <div class="video-grid" id="gems-videos">
+                            <!-- Gems videos will be loaded here -->
+                            <div class="video-placeholder">
+                                <div class="video-thumbnail">
+                                    <div class="play-button">▶</div>
+                                </div>
+                                <h4>How to Get Gems</h4>
+                                <p>Coming soon...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tip-category">
+                        <h3>Coins</h3>
+                        <div class="video-grid" id="coins-videos">
+                            <!-- Coins videos will be loaded here -->
+                            <div class="video-placeholder">
+                                <div class="video-thumbnail">
+                                    <div class="play-button">▶</div>
+                                </div>
+                                <h4>Coin Farming Tips</h4>
+                                <p>Coming soon...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tip-category">
+                        <h3>Tokens & Shards</h3>
+                        <div class="video-grid" id="tokens-videos">
+                            <!-- Tokens videos will be loaded here -->
+                            <div class="video-placeholder">
+                                <div class="video-thumbnail">
+                                    <div class="play-button">▶</div>
+                                </div>
+                                <h4>Token Strategies</h4>
+                                <p>Coming soon...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tip-category">
+                        <h3>Event Guides</h3>
+                        <div class="video-grid" id="events-videos">
+                            <!-- Event guide videos will be loaded here -->
+                            <div class="video-placeholder">
+                                <div class="video-thumbnail">
+                                    <div class="play-button">▶</div>
+                                </div>
+                                <h4>Event Mastery</h4>
+                                <p>Coming soon...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Redeem Codes Section -->
+        <section id="redeem-codes" class="section">
+            <div class="container">
+                <h2>Redeem Codes</h2>
+                <p>Get the latest FC Mobile redeem codes! Copy and paste them at <a href="https://redeem.fcm.ea.com" target="_blank">redeem.fcm.ea.com</a></p>
+                <div class="redeem-codes-container">
+                    <div class="code-item expired">
+                        <div class="code-box expired-code">
+                            <span class="code-text">BUNDLEBOOST</span>
+                            <span class="expired-watermark">EXPIRED</span>
+                            <button class="copy-button" disabled onclick="copyCode('BUNDLEBOOST')">Copy</button>
+                        </div>
+                        <p class="code-description">Bundle opening boost rewards - This code has expired</p>
+                        <div class="code-rewards">
+                            <h4>🎁 Rewards:</h4>
+                            <ul>
+                                <li>🏆 104-111 Captain Player</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="codes-info">
+                        <h3>How to Redeem:</h3>
+                        <ol>
+                            <li>Copy the code by clicking the "Copy" button</li>
+                            <li>Visit <a href="https://redeem.fcm.ea.com" target="_blank">redeem.fcm.ea.com</a></li>
+                            <li>Paste the code and redeem your rewards!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Glitch FC</h2>
+                <p>Hey, F2P Fam! Welcome to the official hub for all things Glitch FC. Like you, I'm on a mission to prove that you don't need to spend real money to build an incredible team in FC Mobile.</p>
+                
+                <p>This website is a direct extension of our YouTube channel, and it's your ultimate resource for crushing the game. Here's what you can expect:</p>
+                
+                <div class="about-content">
+                    <p><strong>Epic Pack Openings:</strong> Get a front-row seat to the best (and sometimes worst!) pack openings. We'll celebrate the walkouts and laugh off the disappointments together.</p>
+                    
+                    <p><strong>The F2P Blueprint:</strong> Tired of feeling like you're falling behind? I'll share my top-tier strategies for earning coins, racking up gems, and grinding for those essential shards. These are the tips that helped me build my dream team, and they'll help you build yours too.</p>
+                    
+                    <p><strong>Exclusive Guides & Insights:</strong> Find written guides and bonus content that go even deeper than my videos. I break down the best market strategies, event tips, and player reviews to give you a serious edge.</p>
+                    
+                    <div class="f2p-motto">
+                        <p>Join me in showing everyone that F2P is the future.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section id="feedback" class="section">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>Have feedback, suggestions, or questions about F2P strategies? I'd love to hear from you!</p>
+                
+                <div class="feedback-container">
+                    <div class="contact-form">
+                        <form action="mailto:defaultgamerfc@gmail.com" method="post" enctype="text/plain" class="feedback-form">
+                            <div class="form-group">
+                                <label for="name">Your Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Your Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject:</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Choose a topic...</option>
+                                    <option value="F2P Strategy Suggestion">F2P Strategy Suggestion</option>
+                                    <option value="Pack Opening Feedback">Pack Opening Feedback</option>
+                                    <option value="Website Feedback">Website Feedback</option>
+                                    <option value="Video Request">Video Request</option>
+                                    <option value="General Question">General Question</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message:</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Share your thoughts, suggestions, or questions..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-button">Submit</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>Other Ways to Connect</h3>
+                        <div class="contact-methods">
+                            <a href="https://www.youtube.com/@GlitchFCGamer" target="_blank" class="contact-link">
+                                <span class="contact-icon">🎥</span>
+                                <span>YouTube Channel</span>
+                            </a>
+                        </div>
+                        
+                        <div class="response-info">
+                            <p><strong>Response Time:</strong> I typically respond within 24-48 hours.</p>
+                            <p><strong>F2P Tips:</strong> Always looking for new strategies to share!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Glitch FC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

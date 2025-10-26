@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow Test - Glitch FC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #9C27B0;
+            border-radius: 8px;
+        }
+        .test-section h2 {
+            color: #9C27B0;
+            margin-bottom: 15px;
+        }
+        .test-button {
+            background: #9C27B0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #E91E63;
+        }
+        .console-log {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 10px;
+            min-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Glitch FC Slideshow Functionality Test</h1>
+        
+        <div class="test-section">
+            <h2>1. Navigation Arrow Test</h2>
+            <p>Test the navigation arrows by clicking them:</p>
+            <button class="nav-arrow nav-arrow-left" onclick="testFunction('changeSlide', -1)" style="position: relative; top: 0; transform: none; margin: 0 10px;">
+                <span>&lt;</span>
+            </button>
+            <button class="nav-arrow nav-arrow-right" onclick="testFunction('changeSlide', 1)" style="position: relative; top: 0; transform: none; margin: 0 10px;">
+                <span>&gt;</span>
+            </button>
+            <div id="arrow-log" class="console-log">Click arrows to test...</div>
+        </div>
+        
+        <div class="test-section">
+            <h2>2. Dot Navigation Test</h2>
+            <p>Test the slide dots:</p>
+            <div class="slide-dots">
+                <span class="dot active" onclick="testFunction('currentSlide', 1)"></span>
+                <span class="dot" onclick="testFunction('currentSlide', 2)"></span>
+                <span class="dot" onclick="testFunction('currentSlide', 3)"></span>
+                <span class="dot" onclick="testFunction('currentSlide', 4)"></span>
+                <span class="dot" onclick="testFunction('currentSlide', 5)"></span>
+            </div>
+            <div id="dot-log" class="console-log">Click dots to test...</div>
+        </div>
+        
+        <div class="test-section">
+            <h2>3. View Details Button Test</h2>
+            <p>Test the view details buttons:</p>
+            <button class="view-details-btn" onclick="testFunction('showEventDetails', 'anniversary')">
+                View Live Tracker & Cheap Beasts →
+            </button>
+            <button class="view-details-btn" onclick="testFunction('showEventDetails', 'captains')">
+                View Captains Event →
+            </button>
+            <div id="details-log" class="console-log">Click view buttons to test...</div>
+        </div>
+        
+        <div class="test-section">
+            <h2>4. Function Availability Check</h2>
+            <p>Check if all required functions are available:</p>
+            <button class="test-button" onclick="checkFunctions()">Check Functions</button>
+            <div id="function-log" class="console-log">Click to check function availability...</div>
+        </div>
+        
+        <div class="test-section">
+            <h2>5. Go to Main Website</h2>
+            <p>Test everything on the actual website:</p>
+            <button class="test-button" onclick="window.open('index.html', '_blank')">Open Main Website</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        function testFunction(functionName, parameter) {
+            const logElement = getLogElement(functionName);
+            
+            try {
+                if (typeof window[functionName] === 'function') {
+                    logElement.innerHTML = `✅ Calling ${functionName}(${parameter})...<br>` + logElement.innerHTML;
+                    window[functionName](parameter);
+                    setTimeout(() => {
+                        logElement.innerHTML = `✅ ${functionName}(${parameter}) executed successfully!<br>` + logElement.innerHTML;
+                    }, 100);
+                } else {
+                    logElement.innerHTML = `❌ Function ${functionName} is not available (type: ${typeof window[functionName]})<br>` + logElement.innerHTML;
+                }
+            } catch (error) {
+                logElement.innerHTML = `❌ Error calling ${functionName}: ${error.message}<br>` + logElement.innerHTML;
+            }
+        }
+        
+        function getLogElement(functionName) {
+            if (functionName.includes('changeSlide')) return document.getElementById('arrow-log');
+            if (functionName.includes('currentSlide')) return document.getElementById('dot-log');
+            if (functionName.includes('showEventDetails')) return document.getElementById('details-log');
+            return document.getElementById('function-log');
+        }
+        
+        function checkFunctions() {
+            const logElement = document.getElementById('function-log');
+            const functions = ['changeSlide', 'currentSlide', 'showEventDetails', 'hideEventDetails'];
+            
+            let result = '<strong>Function Availability Check:</strong><br>';
+            functions.forEach(func => {
+                const available = typeof window[func] === 'function';
+                result += `${available ? '✅' : '❌'} ${func}: ${typeof window[func]}<br>`;
+            });
+            
+            result += '<br><strong>Event Data Available:</strong><br>';
+            result += `${typeof window.eventsData !== 'undefined' ? '✅' : '❌'} eventsData: ${typeof window.eventsData}<br>`;
+            
+            logElement.innerHTML = result + '<br>' + logElement.innerHTML;
+        }
+        
+        // Override console.log to also display in our test interface
+        const originalConsoleLog = console.log;
+        console.log = function(...args) {
+            originalConsoleLog.apply(console, args);
+            
+            // Also display certain logs in our test interface
+            const message = args.join(' ');
+            if (message.includes('changeSlide') || message.includes('arrow clicked')) {
+                document.getElementById('arrow-log').innerHTML = `📝 ${message}<br>` + document.getElementById('arrow-log').innerHTML;
+            }
+            if (message.includes('currentSlide') || message.includes('Dot clicked')) {
+                document.getElementById('dot-log').innerHTML = `📝 ${message}<br>` + document.getElementById('dot-log').innerHTML;
+            }
+            if (message.includes('showEventDetails') || message.includes('View details')) {
+                document.getElementById('details-log').innerHTML = `📝 ${message}<br>` + document.getElementById('details-log').innerHTML;
+            }
+        };
+        
+        // Check functions when page loads
+        window.addEventListener('load', function() {
+            setTimeout(checkFunctions, 1000);
+        });
+    </script>
+</body>
+</html>
